@@ -16,79 +16,46 @@
             </h5>
         </div>
      
-        <form method="post" action="/admin/Patient/add" class="ui form segment" >
+        <h2>Add Patient</h2>
 
-
-                <input type="hidden" name="Id" />
-                
-                <p class="ui field">
-                    <label>Name: <label style="color: red; font-size: 150% ;">*</label></label>
-                    <input type="text" name="Name" placeholder="Name"/>
-                </p>
-
-               <p class="ui field">
-                 <label>Year: <label style="color: red; font-size: 150% ;">*</label></label>
-                <input type="text" name="Year" placeholder="2000"/>
-               </p>
-
-                <p class="ui field">
-                    <label>Height: <label style="color: red; font-size: 150% ;">*</label></label>
-                <input type="text" name="Height" placeholder="1.78"/>
-                </p>
-
-                <p class="ui field">
-                    <label>Boold Type: <label style="color: red; font-size: 150% ;">*</label></label>
-                <input type="text" name="Boold_Type" placeholder="A;B;O"/>
-                </p>
-
-                <p class="ui field">
-                    <label>GenDer: <label style="color: red; font-size: 150% ;">*</label></label> 
-                <label><input type="radio" name="GenDer" value="1"  /> Nam</label>
-        <label><input type="radio" name="GenDer" value="0" /> Nữ</label>
-                </p>
-
-               
-                @* <input type="radio" name="Status" value="1"/> <span>New</span>
-                <input type="radio" name="Status" value="0"/> <span>Old</span> *@
-
-                  <p class="ui field inline">
-                        <label>Status:<label style="color: red; font-size: 150% ;">*</label></label>
-                          <input type="checkbox" name="Status" value="1" checked="@(Model?.Status)" />
-                  </p>
-
-
-                <p class="ui field">
-                    <label>Import Date: <label style="color: red; font-size: 150% ;">*</label></label>
-                    <input type="date" name="ImportDate" />
-                </p>
-
-               
-
-                <p class="ui field"><label>Publisher: <label style="color: red; font-size: 150% ;">*</label></label>
-                <select name="PublisherId">
-                    <option value="">-- Select Department --</option>
-                    @foreach (var pub in (ViewBag.publisherList as ICollection<Publisher>)!) 
-                    {
-                        
- 
-                        <option value="@pub.Id"  selected=@(pub.Id == Model?.PublisherId) >@pub.Name</option>
-
-                    } 
-                </select>
-
-                </p>
-                
-                <br class="clear_float">
-            
-                <div style="overflow: auto;">
-                    <button class="ui button primary" type="submit" style="float: right"><i class="icon save"></i>Lưu</button>
-                    <button class="ui button" type="reset" style="float: right"><i class="icon undo"></i>Hủy</button>
-                    <a href="/admin/Patient/index" class="ui button primary" style="float: right"><i
-                            class="icon list"></i>Danh Sách</a>
-                </div>
+        <form asp-action="PatientAdd" method="post">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Year"></label>
+                <input asp-for="Year" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Height"></label>
+                <input asp-for="Height" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Boold_Type"></label>
+                <input asp-for="Boold_Type" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="GenDer"></label>
+                <input asp-for="GenDer" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Status"></label>
+                <input asp-for="Status" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ImportDate"></label>
+                <input asp-for="ImportDate" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ExportDate"></label>
+                <input asp-for="ExportDate" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="PublisherId"></label>
+                <select asp-for="PublisherId" asp-items="@(new SelectList(ViewData["publisherList"] as List<Asp.Net_MvcWeb_Pj3.Aptech.Models.Publisher>, "Id", "Name"))" class="form-control"></select>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
         </form>
-        <!-- <div class="ui segment">
-            Segment Footer
-        </div> -->
     </div>
 </div>

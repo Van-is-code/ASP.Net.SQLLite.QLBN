@@ -8,7 +8,7 @@ namespace Asp.Net_MvcWeb_Pj3.Aptech.Models
         public DbSet<Publisher> Publisher { get; set; }
         public DbSet<Patient> Patient { get; set; }
 
-        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        public DataContext(DbContextOptions<DataContext> options) : base(DefaultConnection)
         {
         }
 
