@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SEM 3\\mvc\\ASP.NET_MvcWeb_QLBN_16.NGUYENTHANHVAN\\Asp.Net_MvcWeb_Pj3.Aptech.csproj": {}
+    "D:\\SEM 3\\mvc\\ASP.Net.SQLLite.QLBN\\Asp.Net_MvcWeb_Pj3.Aptech.csproj": {}
   },
   "projects": {
-    "D:\\SEM 3\\mvc\\ASP.NET_MvcWeb_QLBN_16.NGUYENTHANHVAN\\Asp.Net_MvcWeb_Pj3.Aptech.csproj": {
+    "D:\\SEM 3\\mvc\\ASP.Net.SQLLite.QLBN\\Asp.Net_MvcWeb_Pj3.Aptech.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SEM 3\\mvc\\ASP.NET_MvcWeb_QLBN_16.NGUYENTHANHVAN\\Asp.Net_MvcWeb_Pj3.Aptech.csproj",
+        "projectUniqueName": "D:\\SEM 3\\mvc\\ASP.Net.SQLLite.QLBN\\Asp.Net_MvcWeb_Pj3.Aptech.csproj",
         "projectName": "Asp.Net_MvcWeb_Pj3.Aptech",
-        "projectPath": "D:\\SEM 3\\mvc\\ASP.NET_MvcWeb_QLBN_16.NGUYENTHANHVAN\\Asp.Net_MvcWeb_Pj3.Aptech.csproj",
+        "projectPath": "D:\\SEM 3\\mvc\\ASP.Net.SQLLite.QLBN\\Asp.Net_MvcWeb_Pj3.Aptech.csproj",
         "packagesPath": "C:\\Users\\VAN NGUYEN\\.nuget\\packages\\",
-        "outputPath": "D:\\SEM 3\\mvc\\ASP.NET_MvcWeb_QLBN_16.NGUYENTHANHVAN\\obj\\",
+        "outputPath": "D:\\SEM 3\\mvc\\ASP.Net.SQLLite.QLBN\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\VAN NGUYEN\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -54,6 +54,10 @@
             "Microsoft.AspNetCore.Session": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
             },
             "microsoft.aspnet.mvc": {
               "target": "Package",

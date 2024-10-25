@@ -1,62 +1,35 @@
-namespace Asp.Net_MvcWeb_Pj3.Aptech.Models;
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-
-// Lớp ngữ cảnh dữ liệu, mô hình hóa MySQL DB Server
-// KHông nói gì thì nó để mã hóa là: latin1_swedish_ci
-// mà cái mình cần thì là: utf8mb4
-// using MySql.EntityFrameworkCore.Extensions;
-
-public class DataContext : DbContext
+namespace Asp.Net_MvcWeb_Pj3.Aptech.Models
 {
-    // Liệt kê, mô hình hóa các bảng trong DB
-    // Liệt kê các tập thực thể, 
-    // tương ứng với các bảng trong cơ sở dữ liệu
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
 
-    
-    public DbSet<Publisher> Publisher {get;set;}
-    public DbSet<Patient> Patient {get;set;}
-
-
-     public DataContext()
+    public class DataContext : DbContext
     {
-        // var folder = Environment.SpecialFolder.LocalApplicationData;
-        // var path = Environment.GetFolderPath(folder);
+        public DbSet<Publisher> Publisher { get; set; }
+        public DbSet<Patient> Patient { get; set; }
+
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        {
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            if (!options.IsConfigured)
+            {
+                // Chuỗi kết nối đến SQL Azure
+                string connectionString = "Server=tcp:qlbn.database.windows.net,1433;Initial Catalog=qlbn;Persist Security Info=False;User ID=qlbn;Password=@T2307atest;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                
+                // Sử dụng SQL Server thay vì SQLite
+                options.UseSqlServer(connectionString);
+            }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Publisher>().ToTable("Publisher");
+            modelBuilder.Entity<Patient>().ToTable("Patient");
+        }
     }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-    {
-        // Kết nối cơ sở dữ liệu SQLite3
-        // options.UseSqlite("Data Source=.\\db.sqlite3"); // ít nhất cũng khởi tạo dữ liệu ban đầu được.
-        options.UseSqlite(@"Data Source=.\data.db"); // ít nhất cũng khởi tạo dữ liệu ban đầu được.
-    }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        base.OnModelCreating(modelBuilder);
-
-        // https://learn.microsoft.com/en-us/answers/questions/613149/how-to-add-tables-from-models-to-applicationdbcont
-        modelBuilder.Entity<Publisher>().ToTable("Publisher"); 
-        modelBuilder.Entity<Patient>().ToTable("Patient");  
-         
-        // modelBuilder.HasCharSet("utf8mb4");
-
-        // modelBuilder.Entity<User>(entity =>
-        // {
-        //     entity.HasKey(e => e.Id);
-        // });
-
-        // Chỉ ra ràng buộc dữ liệu cho bảng con Sach
-        // Câu lệnh C# để tạo ràng buộc Nhiều-Một giữa 
-        // 2 thực thể được đặt trong lớp ngữ cảnh, chứ
-        // không phải lớp thực thể
-        // modelBuilder.Entity<Sach>(entity =>
-        // {
-        //     entity.HasKey(e => e.ID);
-        //     entity.HasOne(d => d.NXB);
-          
-        // });
-    }
-    
 }

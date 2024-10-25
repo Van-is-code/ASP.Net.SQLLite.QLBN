@@ -10,7 +10,7 @@ public
 class Patient
 {
     [Key]
-    public int Id { get; set; }
+    public int ?Id { get; set; }
     // mã định danh
 
     public string Name { get; set; }
@@ -27,6 +27,7 @@ class Patient
     public int GenDer {get;set;}
 
     public bool Status {get;set;}
+    
 
     public DateTime ImportDate {get;set;}
     // ngày nhập kho
