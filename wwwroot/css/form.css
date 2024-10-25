@@ -1,0 +1,72 @@
+/*
+tổng hợp kiến thức: 
+font-size, margin, padding: thường là 1em đổ xuống.
+width: thường là nhiều em hơn, ví dụ: label width: 10em;
+*/
+body {
+    margin: 0;
+    padding: 0;
+    /*background-color: cyan;*/
+    
+}
+label, input ,select,progress,meter, span{
+    display: block;
+    float: left;
+}
+label {
+    clear: left;
+    
+    width: 11em;
+    text-align: right;
+    margin-right: 1em;
+}
+input ,select{
+    margin:  0 0 .5em 0;	/* top right bottom left */
+}
+.clear_float {
+    clear: both;
+    height: 0px;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+/* more style for fieldset and legend : 
+Can keep this part from the LAB */
+fieldset {
+    background:  #dfdfdf;
+    border:  1px solid #ccc;
+    margin:  2em 0;
+    padding:  1em;
+}
+
+legend {
+    font-size:  1.0em;
+    font-weight:  bold;
+    position:  relative;
+    top:  -.4em;
+}
+
+/* style for sub-fieldset */
+fieldset fieldset {
+    background:  #efefef;
+    margin:  1em 0;
+}
+
+fieldset fieldset legend {
+    font-size:  1.2em;
+}
+
+form {
+    width: 70%;
+    margin: auto;
+}
+/* todo make them center-aligned inside the div 
+may be we have to use padding with some precise calculation */
+#form_buttons button 
+{
+    width: 10em;
+}
+
+#form_buttons {
+    text-align: center;
+}

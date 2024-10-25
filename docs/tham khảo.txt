@@ -1,0 +1,15 @@
+https://stackoverflow.com/questions/53639969/net-core-mvc-page-not-refreshing-after-changes
+https://stackoverflow.com/questions/69695460/how-to-search-in-database-all-status-is-0-or-1
+https://stackoverflow.com/questions/39587767/disable-updatedat-update-date-field-in-sequelize-js
+
+
+Xử lý Session đúng cách trong asp.net core mvc
+https://stackoverflow.com/questions/46921275/access-session-variable-in-razor-view-net-core-2
+https://stackoverflow.com/questions/66136356/asp-net-core-clear-session-issue
+
+
+
+Verify() vs EnhancedVerify()
+Hash() vs EnhancedHash()
+https://www.claudiobernasconi.ch/2023/06/23/how-to-hash-passwords-with-bcrypt-in-csharp/
+https://code-maze.com/dotnet-secure-passwords-bcrypt/

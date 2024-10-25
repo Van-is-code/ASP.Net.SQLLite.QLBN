@@ -1,0 +1,94 @@
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Patient Add";
+}
+
+@model Asp.Net_MvcWeb_Pj3.Aptech.Models.Patient
+
+@* ràng buộc thẻ input vào entity class *@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="ui container">
+    <div class="ui segments">
+        <div class="ui segment">
+            <h5 class="ui header">
+                <i class="icon plus"></i>Form Add Patient
+            </h5>
+        </div>
+     
+        <form method="post" action="/admin/Patient/add" class="ui form segment" >
+
+
+                <input type="hidden" name="Id" disabled/>
+                
+                <p class="ui field">
+                    <label>Name: <label style="color: red; font-size: 150% ;">*</label></label>
+                    <input type="text" name="Name" placeholder="Name"/>
+                </p>
+
+               <p class="ui field">
+                 <label>Year: <label style="color: red; font-size: 150% ;">*</label></label>
+                <input type="text" name="Year" placeholder="2000"/>
+               </p>
+
+                <p class="ui field">
+                    <label>Height: <label style="color: red; font-size: 150% ;">*</label></label>
+                <input type="text" name="Height" placeholder="1.78"/>
+                </p>
+
+                <p class="ui field">
+                    <label>Boold Type: <label style="color: red; font-size: 150% ;">*</label></label>
+                <input type="text" name="Boold_Type" placeholder="A;B;O"/>
+                </p>
+
+                <p class="ui field">
+                    <label>GenDer: <label style="color: red; font-size: 150% ;">*</label></label> 
+                <label><input type="radio" name="GenDer" value="1"  /> Nam</label>
+        <label><input type="radio" name="GenDer" value="0" /> Nữ</label>
+                </p>
+
+               
+                @* <input type="radio" name="Status" value="1"/> <span>New</span>
+                <input type="radio" name="Status" value="0"/> <span>Old</span> *@
+
+                  <p class="ui field inline">
+                        <label>Status:<label style="color: red; font-size: 150% ;">*</label></label>
+                          <input type="checkbox" name="Status" value="1" checked="@(Model?.Status)" />
+                  </p>
+
+
+                <p class="ui field">
+                    <label>Import Date: <label style="color: red; font-size: 150% ;">*</label></label>
+                    <input type="date" name="ImportDate" />
+                </p>
+
+               
+
+                <p class="ui field"><label>Publisher: <label style="color: red; font-size: 150% ;">*</label></label>
+                <select name="PublisherId">
+                    <option value="">-- Select Department --</option>
+                    @foreach (var pub in (ViewBag.publisherList as ICollection<Publisher>)!) 
+                    {
+                        
+ 
+                        <option value="@pub.Id"  selected=@(pub.Id == Model?.PublisherId) >@pub.Name</option>
+
+                    } 
+                </select>
+
+                </p>
+                
+                <br class="clear_float">
+            
+                <div style="overflow: auto;">
+                    <button class="ui button primary" type="submit" style="float: right"><i class="icon save"></i>Lưu</button>
+                    <button class="ui button" type="reset" style="float: right"><i class="icon undo"></i>Hủy</button>
+                    <a href="/admin/Patient/index" class="ui button primary" style="float: right"><i
+                            class="icon list"></i>Danh Sách</a>
+                </div>
+        </form>
+        <!-- <div class="ui segment">
+            Segment Footer
+        </div> -->
+    </div>
+</div>

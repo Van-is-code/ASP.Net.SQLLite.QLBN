@@ -1,0 +1,1 @@
+Nhiều khi phải xóa data.db đi tạo lại. để nó sinh lại các bảng.

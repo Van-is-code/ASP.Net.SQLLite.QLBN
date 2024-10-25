@@ -1,0 +1,20 @@
+dotnet new mvc
+dotnet build
+dotnet run
+
+dotnet add package microsoft.aspnet.mvc
+dotnet add package microsoft.entityframeworkcore.sqlite
+dotnet add package pagedlist
+dotnet add package pagedlist.mvc
+
+///////////////////////////////////////////////////
+dotnet add package BCrypt.Net-Next
+dotnet add package BCrypt.Net-Next --version 4.0.3
+
+Installing BCrypt.Net-Next via NuGet
+.NET CLI: dotnet add package BCrypt.Net-Next
+
+Visual Studio Package Manager Console: Install-Package BCrypt.Net-Next
+
+dotnet add package Microsoft.AspNetCore.Session
+https://www.c-sharpcorner.com/article/how-to-use-session-in-asp-net-core/

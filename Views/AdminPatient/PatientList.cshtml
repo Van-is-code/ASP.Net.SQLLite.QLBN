@@ -1,0 +1,133 @@
+
+@model PagedList.IPagedList<Asp.Net_MvcWeb_Pj3.Aptech.Models.Patient>
+
+@using PagedList.Mvc
+@* @using PagedList.Mvc.Core; *@
+@* @using X.PagedList.Mvc.Core; *@
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Patient List";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Height</th>
+        <th>Status</th>
+        <th>Import Date</th>
+        <th>Export Date</th>
+        <th>Publisher</th>
+        <th>Menu</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var Patient in Model) 
+        {
+        <tr>
+            <td>@Patient.Id</td>
+            <td>@Patient.Name</td>
+            <td>@Patient.Year</td>
+            <td>@Patient.Height</td>
+            <td>@Patient.Status</td>
+            <td>@Patient.ImportDateVi</td>
+            <td>@Patient.ExportDateVi</td>
+            <td>@Patient.Pub.Name</td>
+            <td>
+                <a href="/admin/Patient/add">Thêm</a>
+                <a href="/admin/Patient/edit?id=@Patient.Id">Sửa</a>
+                <a href="/admin/Patient/delete?id=@Patient.Id">Xóa</a>
+            </td>
+        </tr>
+        } 
+    </tbody>
+   
+</table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@* Có vẻ như là mình dùng mã Asp.Net MVC cũ sẽ ko có được trên Asp.Net Core *@
+@* 
+@Html.PagedListPager(
+    Model, 
+    page => Url.Action(
+        "Index", 
+        new { 
+            page, 
+            sortOrder = ViewBag.CurrentSort, 
+            currentFilter = ViewBag.CurrentFilter 
+        }
+    )
+) *@
+
+<!-- Hiển thị phân trang -->
+@* https://dev.to/bytehide/pagination-in-c-complete-guide-with-easy-code-examples-3ma2
+
+Kết quả cho thấy : Phân Trang Thủ Công Vẫn Hơn !!!
+Tự mình kiểm soát Pagination Links *@
+<nav aria-label="Page navigation">
+
+    <ul class="pagination">
+
+        <li class="page-item">
+
+            <a class="page-link" href="?page=@(Model.PageNumber - 1)">Previous</a>
+
+        </li>
+
+        @for (int i = 1; i <= Model.PageCount; i++)
+
+        {
+            <li class="page-item">
+
+                <a class="page-link" href="?page=@i">@i</a>
+
+            </li>
+        }
+
+        <li class="page-item">
+
+            <a class="page-link" href="?page=@(Model.PageNumber + 1)">Next</a>
+
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 70%;
+        box-shadow: 0 0 10px lightgray;
+        margin: 0 auto;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background: darkgray;
+        color: white;
+    }
+
+    tr:hover {
+        background-color: lightcyan;
+    }
+</style>

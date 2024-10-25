@@ -1,0 +1,4 @@
+C:\Users\Public\Code\C#\AspNet6_MVC\Asp.Net_MvcWeb_Pj3.Aptech\bin\Debug\net8.0>taskkill /F /IM Asp.Net_MvcWeb_Pj3.Aptech.exe
+SUCCESS: The process "Asp.Net_MvcWeb_Pj3.Aptech.exe" with PID 21908 has been terminated.
+
+C:\Users\Public\Code\C#\AspNet6_MVC\Asp.Net_MvcWeb_Pj3.Aptech\bin\Debug\net8.0>

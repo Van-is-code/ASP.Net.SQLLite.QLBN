@@ -1,0 +1,6 @@
+C:\Users\Public\Code\C#\AspNet6_MVC\Asp.Net_MvcWeb_Pj3.Aptech\Views\AdminUser\UserIndex.cshtml(6,18): error CS0117: 'HttpContext' does not 
+ contain a definition for 'Current' [C:\Users\Public\Code\C#\AspNet6_MVC\Asp.Net_MvcWeb_Pj3.Aptech\Asp.Net_MvcWeb_Pj3.Aptech.csproj]       
+C:\Users\Public\Code\C#\AspNet6_MVC\Asp.Net_MvcWeb_Pj3.Aptech\Views\AdminUser\UserIndex.cshtml(8,21): error CS0117: 'HttpContext' does not 
+ contain a definition for 'Current' [C:\Users\Public\Code\C#\AspNet6_MVC\Asp.Net_MvcWeb_Pj3.Aptech\Asp.Net_MvcWeb_Pj3.Aptech.csproj]       
+C:\Users\Public\Code\C#\AspNet6_MVC\Asp.Net_MvcWeb_Pj3.Aptech\Views\AdminUser\UserIndex.cshtml(12,17): error CS0117: 'HttpContext' does no 
+t contain a definition for 'Current' [C:\Users\Public\Code\C#\AspNet6_MVC\Asp.Net_MvcWeb_Pj3.Aptech\Asp.Net_MvcWeb_Pj3.Aptech.csproj] 

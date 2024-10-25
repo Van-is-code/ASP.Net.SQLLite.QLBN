@@ -1,0 +1,143 @@
+@model PagedList.IPagedList<Asp.Net_MvcWeb_Pj3.Aptech.Models.Patient>
+
+@using PagedList.Mvc
+@* @using PagedList.Mvc.Core; *@
+@* @using X.PagedList.Mvc.Core; *@
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "Patient Index";
+}
+
+<div class="ui container">
+    <table class="ui table hover">
+    @* <caption>Table of Patients</caption> *@
+    <thead>
+    <a href="/admin/Patient/add" title="Add"><i class="icon plus"></i>ADD Pateint</a>
+
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Height</th>
+            <th>Boold_Type</th>
+            <th>GenDer</th>
+            <th>Status</th>
+            <th>Import Date</th>
+            <th>Publisher</th>
+            <th>Menu</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var Patient in Model)
+        {
+            <tr>
+                <td>@Patient.Id</td>
+                <td>@Patient.Name</td>
+                <td>@Patient.Year</td>
+                <td>@Patient.Height</td>
+                <td>@Patient.Boold_Type</td>
+                <td>@(Patient.GenDer == 1 ? "male" : "female")</td>
+                <td>@(Patient.Status == true ? "hospitalized" : "discharged")</td>
+                <td>@Patient.ImportDate</td>
+                <td>@Patient.Pub.Name</td>
+                <td>
+                    <a href="/admin/Patient/edit?id=@Patient.Id"   title="Edit"><i class="icon pencil"></i></a>
+                    <a href="/admin/Patient/delete?id=@Patient.Id" title="Delete"><i class="icon trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+</div>
+
+
+
+@* Có vẻ như là mình dùng mã Asp.Net MVC cũ sẽ ko có được trên Asp.Net Core *@
+@*
+@Html.PagedListPager(
+Model,
+page => Url.Action(
+"Index",
+new {
+page,
+sortOrder = ViewBag.CurrentSort,
+currentFilter = ViewBag.CurrentFilter
+}
+)
+) *@
+
+<!-- Hiển thị phân trang -->
+@* https://dev.to/bytehide/pagination-in-c-complete-guide-with-easy-code-examples-3ma2
+
+Kết quả cho thấy : Phân Trang Thủ Công Vẫn Hơn !!!
+Tự mình kiểm soát Pagination Links *@
+<div style="overflow: auto; margin-left: 775px; margin-top: 10px;">
+    <nav aria-label="Page navigation" class="ui left floated">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    <ul class="pagination ui menu">
+
+        <li class="page-item">
+
+            <a class="page-link item" href="?page=@(Model.PageNumber - 1)">Previous</a>
+
+        </li>
+
+        @for (int i = 1; i <= Model.PageCount; i++)
+
+        {
+            <li class="page-item">
+
+                <a class="page-link item" href="?page=@i" >@i</a>
+
+            </li>
+        }
+
+        <li class="page-item">
+
+            <a class="page-link item" href="?page=@(Model.PageNumber + 1)">Next</a>
+
+        </li>
+
+    </ul>
+
+    </nav>
+
+    @* <nav aria-label="Page navigation" class="ui right floated">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        <ul class="pagination ui menu">
+
+            <li class="item">
+
+                <a class="page-link" href="?page=@(Model.PageNumber - 1)">Previous</a>
+
+            </li>
+
+            @for (int i = 1; i <= Model.PageCount; i++)
+
+            {
+                <li class="item">
+
+                    <a class="page-link" href="?page=@i" >@i</a>
+
+                </li>
+            }
+
+            <li class="item">
+
+                <a class="page-link" href="?page=@(Model.PageNumber + 1)">Next</a>
+
+            </li>
+
+        </ul>
+
+    </nav> *@
+</div>
+
+
+
+

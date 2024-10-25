@@ -1,0 +1,22 @@
+    table {
+        border-collapse: collapse;
+        width: 70%;
+        box-shadow: 0 0 10px lightgray;
+        margin: 0 auto;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background: darkgray;
+        color: white;
+    }
+
+    tr:hover {
+        background-color: lightcyan;
+    }
